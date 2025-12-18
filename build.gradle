@@ -3,14 +3,15 @@ plugins {
 }
 
 group = 'ru.riht'
-version = '1.0-SNAPSHOT'
+version = '1'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.42'
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
@@ -18,9 +19,10 @@ dependencies {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.filtertool.Main',
+                'Main-Class': 'ru.riht.Main',
                 'Implementation-Version': version
         )
+
     }
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
