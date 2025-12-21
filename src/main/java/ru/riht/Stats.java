@@ -1,12 +1,16 @@
 package ru.riht;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Stats {
     private long count = 0;
 
@@ -34,7 +38,7 @@ public class Stats {
                 maxInt = intValue;
             }
 
-            sumInt.add(intValue);
+            sumInt = sumInt.add(intValue);
         }catch(NumberFormatException e){
 
         }
@@ -52,7 +56,7 @@ public class Stats {
             if (maxFloat == null || doubleValue > maxFloat) {
                 maxFloat = doubleValue;
             }
-            sumFloat.add(decimalValue);
+            sumFloat = sumFloat.add(decimalValue);
         } catch (NumberFormatException e) {
 
         }
